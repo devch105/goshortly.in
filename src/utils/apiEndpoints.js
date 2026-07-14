@@ -1,29 +1,24 @@
-export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8080";
+export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://10.105.75.220:8080/api/v1.0";
 
 // Auth
 export const AUTH = {
-  LOGIN: "/api/v1.0/auth/login",
-  REGISTER: "/api/v1.0/auth/register",
-  VERIFY_EMAIL: "/api/v1.0/auth/verify-email",
-  RESEND_OTP: "/api/v1.0/auth/resend-verification",
+  LOGIN: "/auth/login",
+  REGISTER: "/auth/register",
+  VERIFY_EMAIL: "/auth/verify-email",
+  RESEND_OTP: "/auth/resend-verification",
 };
 
 // URL
 export const URLS = {
-  CREATE: "/api/v1.0/url",
-  GET_ALL: "/api/v1.0/url",
-  GET_BY_ID: (id) => `/api/v1.0/url/${id}`,
-  DELETE: (id) => `/api/v1.0/url/${id}`,
-  UPDATE: (id) => `/api/v1.0/url/${id}`,
+  CREATE: "/url",
+  GET_ALL: "/url",
+  GET_BY_ID: (id) => `/url/${id}`,
+  DELETE: (id) => `/url/${id}`,
+  UPDATE: (id) => `/url/${id}`,
 };
 
 // Analytics
 export const ANALYTICS = {
-  OVERVIEW: "/api/v1.0/analytics/overview",
-  URL: (id) => `/api/v1.0/analytics/${id}`,
-};
-
-// Profile
-export const USER = {
-  PROFILE: "/api/v1.0/user/profile",
+  TOTAL_CLICKS: "/urls/totalclicks",
+  URL: (id) => `/analytics/${id}`,
 };

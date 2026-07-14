@@ -1,11 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Outfit:wght@100..900&display=swap');
 @import "tailwindcss";
 
 
 body{
-    font-family: 'Outfit',sans-serif;
+    font-family: 'Outfit',sans-serif, ;
     background-color: #fcfbfb;
     overflow-x: hidden;
+}
+.acme{
+  font-family: "Acme",cursivie;
 }
 
 

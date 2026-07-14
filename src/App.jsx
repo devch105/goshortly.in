@@ -1,25 +1,36 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import LandingPage from "./pages/LandingPage";
 import { Toaster } from "react-hot-toast";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import Dashboard from "./components/Dashboard";
+import ProtectRoute from "./components/ProtectRoute";
+import LandingPage from "./pages/LandingPage";
 
-const App = () => {
-  return (
-    
-   <>
-    <Toaster position="top-right"/>
+import { isTokenValid } from "./utils/Validation";
 
-   <BrowserRouter>
-   <Routes>
-      <Route path="/" element={<LandingPage/>} />
-      <Route path="/dashboard"
-       element={
-        
-       }
-      />
-   </Routes>
-   </BrowserRouter>
-   </>
+const Root = () => {
+  return isTokenValid() ? (
+    <Navigate to="/dashboard" replace />
+  ) : (
+    <LandingPage />
   );
 };
 
-export default App;
+export default function App() {
+  return (
+    <BrowserRouter>
+      <Toaster position="bottom-center" />
+
+      <Routes>
+        <Route path="/" element={<Root />} />
+
+        <Route
+          path="/dashboard"
+          element={
+            <ProtectRoute>
+              <Dashboard />
+            </ProtectRoute>
+          }
+        />
+      </Routes>
+    </BrowserRouter>
+  );
+}

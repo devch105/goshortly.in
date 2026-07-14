@@ -88,7 +88,7 @@ const SignUp = () => {
             Create Your Account
           </h2>
           <p className="text-sm text-slate-600 text-center mb-5">
-            Make Your URL Short , Shareable and Trackable
+            Start Shortening Smarter Today
           </p>
         </div>
 

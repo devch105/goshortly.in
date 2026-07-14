@@ -1,5 +1,6 @@
-import bg_image from "./login_bg.jpg";
-
+import LoginBackground from "./loginBg.jpg";
+import Logo from "./LogoName.png";
 export const assetImages = {
-    bg_image,
+    LoginBackground,
+    Logo,
 }
