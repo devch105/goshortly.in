@@ -11,13 +11,13 @@ const CustomTooltip = ({ active, payload, label }) => {
   if (!active || !payload?.length) return null;
 
   return (
-    <div className="rounded-2xl border border-white/10 bg-[#101828]/95 px-4 py-3 shadow-xl backdrop-blur-xl">
+    <div className="rounded-2xl border border-white/10 bg-white px-4 py-3 shadow-xl backdrop-blur-xl">
       <p className="text-xs font-medium text-gray-400">{label}</p>
 
       <div className="mt-2 flex items-center gap-2">
-        <div className="h-2.5 w-2.5 rounded-full bg-emerald-400" />
+        <div className="h-2.5 w-2.5 rounded-full bg-indigo-400" />
 
-        <span className="text-sm font-semibold text-white">
+        <span className="text-sm font-semibold text-slate-600">
           {payload[0].value.toLocaleString()} Clicks
         </span>
       </div>
@@ -55,7 +55,7 @@ const ClickTrendChart = ({
             Total Clicks
           </p>
 
-          <h2 className="text-3xl font-bold text-emerald-400">
+          <h2 className="text-3xl font-bold text-indigo-400">
             {totalClicks.toLocaleString()}
           </h2>
         </div>
@@ -66,17 +66,17 @@ const ClickTrendChart = ({
           <AreaChart
             data={formattedData}
             margin={{
-              top: 10,
-              right: 10,
-              left: -15,
+              top: 5,
+              right: 5,
+              left: -25,
               bottom: 0,
             }}
           >
             <defs>
               <linearGradient id="clickGradient" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="#10B981" stopOpacity={0.35} />
+                <stop offset="0%" stopColor="#6366F1" stopOpacity={0.35} />
 
-                <stop offset="100%" stopColor="#10B981" stopOpacity={0} />
+                <stop offset="100%" stopColor="#6366F1" stopOpacity={0} />
               </linearGradient>
             </defs>
 
@@ -84,6 +84,10 @@ const ClickTrendChart = ({
               dataKey="date"
               axisLine={false}
               tickLine={false}
+              angle={-73}
+              textAnchor="end"
+              interval={0}
+              height={70}
               tick={{
                 fill: "#64748B",
                 fontSize: 13,
@@ -105,7 +109,7 @@ const ClickTrendChart = ({
 
             <Tooltip
               cursor={{
-                stroke: "#10B981",
+                stroke: "#6366F1",
                 strokeWidth: 2,
                 strokeOpacity: 0.3,
               }}
@@ -115,13 +119,13 @@ const ClickTrendChart = ({
             <Area
               type="natural"
               dataKey="clicks"
-              stroke="#10B981"
+              stroke="#6366F1"
               strokeWidth={3}
               fill="url(#clickGradient)"
               dot={false}
               activeDot={{
                 r: 6,
-                fill: "#10B981",
+                fill: "#6366F1",
                 stroke: "#fff",
                 strokeWidth: 2,
               }}

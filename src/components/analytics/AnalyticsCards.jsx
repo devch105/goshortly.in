@@ -1,45 +1,46 @@
-import { BarChart3, Link2, MousePointerClick, QrCode } from "lucide-react";
-
+import { Link2, MousePointerClick } from "lucide-react";
 import StatCard from "./StatCard";
 
-const AnalyticsCards = () => {
-  const analytics = {
-    totalClicks: 1245,
-    activeUrls: 18,
-    averageClicks: 69,
-    qrScans: 312,
-  };
-
+const AnalyticsCards = ({
+  totalClicks,
+  activeUrls,
+  activeSection,
+  setActiveSection,
+}) => {
   return (
-    <div className="mt-25 w-full backdrop-blur-xl border-b border-white/20 shadow-lg z-0 rounded-md">
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-4 p-2">
-        <StatCard
-          title="Total Clicks"
-          value={analytics.totalClicks}
-          icon={<MousePointerClick size={22} />}
-          description="Total clicks across all URLs"
-        />
+    <div className="card bg-white border border-gray-200 rounded-xl shadow-lg p-5 sm:p-6 lg:p-8 h-full">
+      <div className="flex flex-col sm:flex-row gap-4 h-full">
+        <div
+          className="flex-1 cursor-pointer transition-all duration-300 hover:scale-[1.02]"
+          onClick={() => setActiveSection("chart")}
+        >
+          <StatCard
+            className={
+              activeSection === "chart" ? "border border-indigo-500" : ""
+            }
+            title="Total Clicks"
+            value={totalClicks}
+            icon={<MousePointerClick size={22} />}
+            description="Total clicks across all URLs"
+            active={activeSection === "chart"}
+          />
+        </div>
 
-        <StatCard
-          title="Active URLs"
-          value={analytics.activeUrls}
-          icon={<Link2 size={22} />}
-          description="Currently active shortened URLs"
-        />
-
-        <StatCard
-          title="Avg. Clicks"
-          value={analytics.averageClicks}
-          icon={<BarChart3 size={22} />}
-          description="Average clicks per URL"
-        />
-
-        <StatCard
-          title="QR Scans"
-          value={analytics.qrScans}
-          icon={<QrCode size={22} />}
-          description="Scans generated via QR codes"
-        />
+        <div
+          className="flex-1 cursor-pointer transition-all duration-300 hover:scale-[1.02]"
+          onClick={() => setActiveSection("urls")}
+        >
+          <StatCard
+            className={
+              activeSection === "urls" ? "border border-indigo-500" : ""
+            }
+            title="Active URLs"
+            value={activeUrls}
+            icon={<Link2 size={22} />}
+            description="Currently active shortened URLs"
+            active={activeSection === "urls"}
+          />
+        </div>
       </div>
     </div>
   );

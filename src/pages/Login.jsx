@@ -6,6 +6,7 @@ import privateApi from "../utils/privateApi";
 
 import Input from "../components/Input";
 
+import AuthHero from "../components/AuthHero";
 import AppContext from "../context/AppContext";
 
 const Login = () => {
@@ -69,9 +70,11 @@ const Login = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center gap-5 relative z-10 w-full mx-auto">
-      <div className="w-full max-w-3xl rounded-lg  p-8 max-h-[95vh]  overflow-auto">
-        <div className="w-full max-w-3xl mx-auto mb-8">
+    <div className="flex items-center justify-center gap-5 w-full mx-auto">
+      <AuthHero />
+
+      <div className="flex-1 rounded-lg  p-8 max-h-[95vh]  overflow-auto">
+        <div className=" mb-8">
           <h2 className="text-3xl font-semibold text-center mb-2">
             Good to see you again
           </h2>
@@ -114,9 +117,17 @@ const Login = () => {
               <button
                 disabled={loading}
                 type="submit"
-                className={`px-8 py-3 rounded-lg bg-slate-900 text-white font-medium transition-all duration-300 hover:bg-slate-800 ${
-                  loading ? "opacity-60 cursor-not-allowed" : ""
-                }`}
+                className={`w-3xs
+                    h-10
+                    rounded-xl
+                    bg-slate-900
+                    hover:bg-black
+                    text-white
+                    transition
+                    font-semibold
+                    text-sm
+                    shadow-lg
+                    hover:shadow-xl ${loading ? "opacity-60 cursor-not-allowed" : ""}`}
               >
                 {loading ? "Logging in..." : "Login"}
               </button>

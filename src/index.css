@@ -82,19 +82,21 @@ body{
   padding: 8px 14px;
   border: 1px solid #d1d5db;
   border-radius: 8px;
+  
 
   font-size: 14px;
   font-weight: 500;
-  color: #374151;
+  
 
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
-/* .card-btn:hover {
+.card-btn:hover {
   background: #f9fafb;
   border-color: #9ca3af;
-} */
+  color: black;
+}
 
 .card-btn:active {
   transform: scale(0.98);

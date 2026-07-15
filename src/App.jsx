@@ -10,7 +10,7 @@ const Root = () => {
   return isTokenValid() ? (
     <Navigate to="/dashboard" replace />
   ) : (
-    <LandingPage />
+    <Navigate to="/login" replace />
   );
 };
 
@@ -30,6 +30,8 @@ export default function App() {
             </ProtectRoute>
           }
         />
+
+        <Route path="/login" element={<LandingPage />} />
       </Routes>
     </BrowserRouter>
   );

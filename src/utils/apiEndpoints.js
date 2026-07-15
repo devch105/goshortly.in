@@ -10,11 +10,10 @@ export const AUTH = {
 
 // URL
 export const URLS = {
-  CREATE: "/url",
-  GET_ALL: "/url",
-  GET_BY_ID: (id) => `/url/${id}`,
-  DELETE: (id) => `/url/${id}`,
-  UPDATE: (id) => `/url/${id}`,
+  CREATE: "/urls/shorten",
+  LIST: "/urls/list",
+  DELETE: (shortCode) => `/urls/delete/${shortCode}`,
+  
 };
 
 // Analytics

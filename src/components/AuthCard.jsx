@@ -14,7 +14,7 @@ const AuthCard = ({ type, setType }) => {
         {type === "Login" ? <Login /> : <SignUp />}
 
         <div className="flex gap-2 items-center justify-center">
-          <p className="text-center text-slate-600 text-sm">
+          <p className="text-center font-semibold text-slate-600 text-sm">
             {type === "Login"
               ? "Don't have an account?"
               : "Already have an account?"}

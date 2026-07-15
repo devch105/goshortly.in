@@ -3,21 +3,32 @@ import { createContext, useState } from "react";
 export const AppContext = createContext();
 
 export const AppContextProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(() => {
+    const savedUser = localStorage.getItem("user");
+    return savedUser ? JSON.parse(savedUser) : null;
+  });
 
   const clearUser = () => {
     localStorage.removeItem("token");
+    localStorage.removeItem("user");
     setUser(null);
   };
 
-  const contextValue = {
-    user,
-    setUser,
-    clearUser,
+  const saveUser = (userData) => {
+    localStorage.setItem("user", JSON.stringify(userData));
+    setUser(userData);
   };
 
   return (
-    <AppContext.Provider value={contextValue}>{children}</AppContext.Provider>
+    <AppContext.Provider
+      value={{
+        user,
+        setUser: saveUser,
+        clearUser,
+      }}
+    >
+      {children}
+    </AppContext.Provider>
   );
 };
 

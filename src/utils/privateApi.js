@@ -33,9 +33,14 @@ privateApi.interceptors.response.use(
 
     switch (error.response.status) {
       case 401:
-        localStorage.removeItem("token");
-        window.location.href = "/login";
-        break;
+         const url = error.config?.url;
+
+          if(url?.includes("/login")) {
+            break;
+          }
+         localStorage.removeItem("token");
+         window.location.href = "/login";
+         break;
 
       case 403:
         console.error("Forbidden");

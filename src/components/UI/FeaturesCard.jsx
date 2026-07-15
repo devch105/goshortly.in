@@ -30,15 +30,36 @@ const FeaturesCard = ({ feature }) => {
         type: "spring",
         stiffness: 250,
       }}
-      className="rounded-2xl border border-slate-200 bg-white p-8"
+      className={`
+        rounded-2xl
+        border
+        ${feature.border}
+        bg-white
+        p-8
+        shadow-sm
+        transition-all
+        duration-300
+        hover:shadow-xl
+        ${feature.hover}
+      `}
     >
-      <div className="w-14 h-14 rounded-xl bg-emerald-100 flex items-center justify-center">
-        <Icon className="text-emerald-500 text-2xl" />
+      <div
+        className={`
+          flex h-14 w-14 items-center justify-center
+          rounded-xl
+          ${feature.bg}
+        `}
+      >
+        <Icon className={`${feature.iconColor}`} size={20} />
       </div>
 
-      <h3 className="mt-6 text-xl font-bold">{feature.title}</h3>
+      <h3 className="mt-2 text-xl font-bold text-slate-900">
+        {feature.title}
+      </h3>
 
-      <p className="mt-3 text-slate-600">{feature.description}</p>
+      <p className="mt-1 leading-7 text-slate-600">
+        {feature.description}
+      </p>
     </motion.div>
   );
 };

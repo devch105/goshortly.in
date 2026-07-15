@@ -13,7 +13,7 @@ const container = {
 
 const HomeFeatures = () => {
   return (
-    <section className="py-24 bg-slate-50 mx-5">
+    <section className="py-20  mx-5">
       {/* Heading */}
       <motion.div
         initial={{ opacity: 0, y: -80 }}
@@ -41,7 +41,7 @@ const HomeFeatures = () => {
           once: true,
           amount: 0.3,
         }}
-        className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3"
+        className="grid gap-10 lg:grid-cols-2"
       >
         {features.map((feature) => (
           <FeaturesCard key={feature.id} feature={feature} />
