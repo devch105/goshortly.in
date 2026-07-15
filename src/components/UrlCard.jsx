@@ -30,11 +30,14 @@ const UrlCard = ({ url, fetchUrls, onAnalyticsLoaded }) => {
     }
   };
 
-  const getDateRange = (days) => {
-    const end = new Date();
-    const start = new Date();
+  const getDateRange = () => {
+    const now = new Date();
 
-    start.setDate(end.getDate() - days);
+    // First day of current month (00:00:00)
+    const start = new Date(now.getFullYear(), now.getMonth(), 1, 0, 0, 0);
+
+    // Last day of current month (23:59:59)
+    const end = new Date(now.getFullYear(), now.getMonth() + 1, 0, 23, 59, 59);
 
     return {
       startDate: start.toISOString().slice(0, 19),
@@ -44,7 +47,7 @@ const UrlCard = ({ url, fetchUrls, onAnalyticsLoaded }) => {
 
   const handleAnalytics = async () => {
     try {
-      const { startDate, endDate } = getDateRange(30);
+      const { startDate, endDate } = getDateRange();
 
       const response = await privateApi.get(
         `/urls/analytics/${url.shortCode}`,
